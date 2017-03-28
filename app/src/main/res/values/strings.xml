@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ChoreCloud</string>
+    <string name="welcome_makeChore">Create your Chore</string>
+    <string name="string_name">Name of chore</string>
+    <string name="string_enterPoint">Point value</string>
+    <string name="string_enterTime">Estimated time required</string>
+    <string name="string_enterRepeat">Repeating</string>
+    <string name="string_enterDate">Due Date</string>
+    <string name="string_enterDescription">Description (optional)</string>
+</resources>
