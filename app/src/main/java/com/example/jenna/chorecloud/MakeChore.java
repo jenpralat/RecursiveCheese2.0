@@ -25,8 +25,6 @@ public class MakeChore extends AppCompatActivity {
         EditText due = (EditText) findViewById(R.id.enterDate);
         EditText description = (EditText) findViewById(R.id.enterDescription);
 
-        Boolean repeat =
-
         String nameStr = name.getText().toString();
         String pointStr = point.getText().toString();
         String timeStr = time.getText().toString();
