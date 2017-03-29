@@ -31,12 +31,12 @@ public class Child {
     }
 
     public Child() {
-        childName = "David E. Buger";
+        childName = "David E Buger";
         points = 0;
         chores = new ArrayList<Chore>();
         rewards = new ArrayList<Reward>();
         /*
-         * Creates an instance of the child class with a name of David E. Buger, and with zero points
+         * Creates an instance of the child class with a name of David E Buger, and with zero points
          */
     }
 
