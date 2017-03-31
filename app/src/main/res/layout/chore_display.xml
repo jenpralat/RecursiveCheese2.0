@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/NameDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chore:" />
+
+    <TextView
+        android:id="@+id/ChoreName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/PointDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Point Value:" />
+
+    <TextView
+        android:id="@+id/PointValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/TimeDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/Time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time:" />
+
+    <TextView
+        android:id="@+id/RepeatDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/Repeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Repeat: " />
+
+    <TextView
+        android:id="@+id/DateDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/DueDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Due Date:" />
+
+</LinearLayout>
