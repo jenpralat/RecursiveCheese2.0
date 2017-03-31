@@ -35,43 +35,41 @@ public class Child {
         points = 0;
         chores = new ArrayList<Chore>();
         rewards = new ArrayList<Reward>();
-        /*
-         * Creates an instance of the child class with a name of David E Buger, and with zero points
-         */
     }
-
+    /*
+     * Creates an instance of the child class with a name of David E Buger, and with zero points
+     */
     public String getName() {
         return childName;
-        /*
-         * @return the child's name
-         */
     }
-
+    /*
+     * @return the child's name
+     */
     public int getPoints() {
         return points;
-        /*
-         * @return the amount of points the child has
-         */
     }
+    /*
+     * @return the amount of points the child has
+     */
 
     public ArrayList getChores() {
         return chores;
-        /*
-         * @return the list of chores assigned to the child
-         */
     }
-
+    /*
+     * @return the list of chores assigned to the child
+     */
     public ArrayList getRewards() {
         return rewards;
+        }
         /*
          * @return the list of chores the child can unlock
-         */}
+         */
 
 
     public void setName(String name) {
         childName = name;
-        /*
-         * Updates the child's name
-         */
     }
+    /*
+     * Updates the child's name
+     */
 }
