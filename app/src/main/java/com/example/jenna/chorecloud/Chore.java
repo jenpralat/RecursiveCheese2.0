@@ -25,7 +25,7 @@ public class Chore {
             choreDeadline = 0;
             choreRepeat = false;
         }
-        /**
+        /*
          * A constructor for the chore class.
          * @param points: The amount of points the chore is worth. (int)
          * @param name: The name of the chore. (string)
