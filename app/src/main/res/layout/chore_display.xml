@@ -7,55 +7,55 @@
     <TextView
         android:id="@+id/NameDisplay"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:text="Chore:"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/ChoreName"
         android:layout_width="match_parent"
-        android:layout_height="52dp" />
+        android:layout_height="37dp" />
 
     <TextView
         android:id="@+id/PointDisplay"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:text="Point Value:"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/PointValue"
         android:layout_width="match_parent"
-        android:layout_height="58dp" />
+        android:layout_height="41dp" />
 
     <TextView
         android:id="@+id/TimeDisplay"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:text="Time:"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/Time"
         android:layout_width="match_parent"
-        android:layout_height="73dp" />
+        android:layout_height="42dp" />
 
     <TextView
         android:id="@+id/RepeatDisplay"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:text="Repeat:"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/Repeat"
         android:layout_width="match_parent"
-        android:layout_height="66dp" />
+        android:layout_height="46dp" />
 
     <TextView
         android:id="@+id/DateDisplay"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:text="Due Date:"
         android:textSize="30sp" />
 
@@ -67,7 +67,7 @@
     <TextView
         android:id="@+id/DescriptionDisplay"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="wrap_content"
         android:text="Description:"
         android:textSize="30sp" />
 
