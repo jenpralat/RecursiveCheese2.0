@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
 
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
