@@ -18,11 +18,11 @@ public class ChoreDisplay extends AppCompatActivity {
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MakeChore.EXTRA_MESSAGE);
+        String message = intent.getStringExtra("ChoreNameDisplay");
 
         // Capture the layout's TextView and set the string as its text
-        TextView textView = (TextView) findViewById(R.id.ChoreName);
-        textView.setText(message);
+        TextView ChoreNameView = (TextView) findViewById(R.id.ChoreName);
+        ChoreNameView.setText(message);
     }
 
 }

@@ -42,7 +42,7 @@ public class MakeChore extends AppCompatActivity {
 
         Intent intent = new Intent(this, ChoreDisplay.class);
         String nameDisplay = chore.getName();
-        intent.putExtra(EXTRA_MESSAGE, nameDisplay);
+        intent.putExtra("ChoreNameDisplay",nameDisplay);
         startActivity(intent);
     }
 }
