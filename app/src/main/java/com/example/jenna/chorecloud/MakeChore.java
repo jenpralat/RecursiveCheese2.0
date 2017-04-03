@@ -1,6 +1,5 @@
 package com.example.jenna.chorecloud;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,12 +38,10 @@ public class MakeChore extends AppCompatActivity {
         Double dueDouble = parseDouble(dueStr);
 
         Chore chore = new Chore(pointInt, nameStr, timeDouble, descriptionStr, dueDouble, repeatB);
+    }
 
-        Intent intent = new Intent(this, ChoreDisplay.class);
-        String nameDisplay = chore.getName();
-        intent.putExtra(EXTRA_MESSAGE, nameDisplay);
-        startActivity(intent);
+    public void toChoreDisplay(View view) {
+
     }
 }
-
 
