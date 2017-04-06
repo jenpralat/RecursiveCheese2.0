@@ -1,11 +1,19 @@
 package com.example.jenna.chorecloud;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.content.Context;
+import android.support.v4.app.NotificationCompat;
+
+
+
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
@@ -42,9 +50,22 @@ public class MakeChore extends AppCompatActivity {
 
         Intent intent = new Intent(this, ChoreDisplay.class);
         String nameDisplay = chore.getName();
-        intent.putExtra("ChoreNameDisplay",nameDisplay);
+        intent.putExtra("ChoreNameDisplay", nameDisplay);
         startActivity(intent);
     }
+    public void SendNotification(View view) {
+        //Get an instance of Notification Manager
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        mBuilder.setContentTitle("Chore Notification!");
+        mBuilder.setContentText("Please Work");
+        mBuilder.setSmallIcon(android.R.drawable.ic_menu_report_image);
+        // Gets an instance of the NotificationManager service//
+        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, ChoreDisplay.class), 0);
+        Resources r = getResources();
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(0, mBuilder.build());
+    }
+
 }
 
 
