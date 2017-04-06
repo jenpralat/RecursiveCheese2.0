@@ -29,7 +29,7 @@ public class ChoreDisplay extends AppCompatActivity {
         onClick(view);
     }
 
-    public void onClick(View view){
+    public void onClick(View view) {
         Intent i = new Intent(getApplicationContext(),NameListChoreDisplay.class);
         startActivity(i);
     }

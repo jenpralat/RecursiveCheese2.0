@@ -5,4 +5,5 @@ package com.example.jenna.chorecloud;
  */
 
 public class NameListChoreDisplay {
+
 }

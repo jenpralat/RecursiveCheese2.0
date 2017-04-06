@@ -59,7 +59,7 @@ public class MakeChore extends AppCompatActivity {
         intent.putExtra("ChorePointDisplay",pointDisplay);
         startActivity(intent);
     }
-    public void SendNotification(View view) {
+    public void SendNotification(View view){
         //Get an instance of Notification Manager
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         mBuilder.setContentTitle("Chore Notification!");
