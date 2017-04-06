@@ -20,7 +20,7 @@
         android:id="@+id/PointDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Point Value:"
+        android:text="@string/string_enterPoint"
         android:textSize="30sp" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:id="@+id/TimeDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Time:"
+        android:text="@string/string_enterTime"
         android:textSize="30sp" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:id="@+id/RepeatDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Repeat:"
+        android:text="@string/string_enterRepeat"
         android:textSize="30sp" />
 
     <TextView
@@ -56,7 +56,7 @@
         android:id="@+id/DateDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Due Date:"
+        android:text="@string/string_enterDate"
         android:textSize="30sp" />
 
     <TextView
@@ -68,7 +68,7 @@
         android:id="@+id/DescriptionDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description:"
+        android:text="@string/string_enterDescription"
         android:textSize="30sp" />
 
     <TextView
