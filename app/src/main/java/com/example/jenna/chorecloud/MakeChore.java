@@ -26,7 +26,7 @@ public class MakeChore extends AppCompatActivity {
         setContentView(R.layout.activity_make_chore);
     }
 
-    public void MakeChore (View view){
+    public void MakeChore(View view) {
         EditText name = (EditText) findViewById(R.id.enterName);
         EditText point = (EditText) findViewById(R.id.enterPoint);
         EditText time = (EditText) findViewById(R.id.enterTime);
@@ -48,28 +48,30 @@ public class MakeChore extends AppCompatActivity {
 
         Chore chore = new Chore(pointInt, nameStr, timeDouble, descriptionStr, dueDouble, repeatB);
 
-        newIntent(view, chore);
-    }
-
-    public void newIntent(View view, Chore chore){
         Intent intent = new Intent(this, ChoreDisplay.class);
-        String nameDisplay = "Wash the Dishes";//YO FUTURE JENNA YOU CHANGED THIS FOR YOUR TESTING, CHANGE IT BACK!!!!!!!!!
-        int pointDisplay = chore.getPoints();
-        intent.putExtra("ChoreNameDisplay",nameDisplay);
-        intent.putExtra("ChorePointDisplay",pointDisplay);
+        String nameDisplay = chore.getName();
+        intent.putExtra("ChoreNameDisplay", nameDisplay);
         startActivity(intent);
     }
-    public void SendNotification(View view){
+    public void SendNotification(View view) {
+
+        //Create the intent that’ll fire when the user taps the notification//
+        Intent intent = new Intent(this, ChoreDisplay.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
         //Get an instance of Notification Manager
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-        mBuilder.setContentTitle("Chore Notification!");
-        mBuilder.setContentText("Please Work");
+        mBuilder.setContentTitle("ChoreCloud");
+        mBuilder.setContentText("A new chore was created!");
         mBuilder.setSmallIcon(android.R.drawable.ic_menu_report_image);
+        mBuilder.setContentIntent(pendingIntent);
+
         // Gets an instance of the NotificationManager service//
-        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, ChoreDisplay.class), 0);
-        Resources r = getResources();
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(0, mBuilder.build());
+
+
+
     }
 
 }
