@@ -53,12 +53,15 @@ public class MakeChore extends AppCompatActivity {
 
     public void newIntent(View view, Chore chore){
         Intent intent = new Intent(this, ChoreDisplay.class);
-        String nameDisplay = "Wash the Dishes";//YO FUTURE JENNA YOU CHANGED THIS FOR YOUR TESTING, CHANGE IT BACK!!!!!!!!!
+        String nameDisplay = chore.getName();
         int pointDisplay = chore.getPoints();
+        Double timeDisplay = chore.getTime();
+        String descriptionDisplay = chore.getDesc();
         intent.putExtra("ChoreNameDisplay",nameDisplay);
         intent.putExtra("ChorePointDisplay",pointDisplay);
         startActivity(intent);
     }
+
     public void SendNotification(View view){
         //Get an instance of Notification Manager
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
