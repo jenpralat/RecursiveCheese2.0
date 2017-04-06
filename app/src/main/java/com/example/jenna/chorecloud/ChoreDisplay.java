@@ -3,6 +3,7 @@ package com.example.jenna.chorecloud;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -11,18 +12,26 @@ import android.widget.TextView;
 
 public class ChoreDisplay extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState, View view) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chore_display);
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         String message = intent.getStringExtra("ChoreNameDisplay");
+        int point = intent.getIntExtra("ChorePointDisplay", 0);
 
         // Capture the layout's TextView and set the string as its text
         TextView ChoreNameView = (TextView) findViewById(R.id.ChoreName);
+        TextView PointValueView = (TextView) findViewById(R.id.PointValue);
         ChoreNameView.setText(message);
+
+        onClick(view);
+    }
+
+    public void onClick(View view){
+        Intent i = new Intent(getApplicationContext(),NameListChoreDisplay.class);
+        startActivity(i);
     }
 
 }

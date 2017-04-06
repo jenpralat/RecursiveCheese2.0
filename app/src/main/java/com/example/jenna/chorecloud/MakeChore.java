@@ -18,7 +18,7 @@ public class MakeChore extends AppCompatActivity {
         setContentView(R.layout.activity_make_chore);
     }
 
-    public void MakeChore(View view) {
+    public void MakeChore (View view){
         EditText name = (EditText) findViewById(R.id.enterName);
         EditText point = (EditText) findViewById(R.id.enterPoint);
         EditText time = (EditText) findViewById(R.id.enterTime);
@@ -40,9 +40,15 @@ public class MakeChore extends AppCompatActivity {
 
         Chore chore = new Chore(pointInt, nameStr, timeDouble, descriptionStr, dueDouble, repeatB);
 
+        newIntent(view, chore);
+    }
+
+    public void newIntent(View view, Chore chore){
         Intent intent = new Intent(this, ChoreDisplay.class);
-        String nameDisplay = chore.getName();
+        String nameDisplay = "Wash the Dishes";//YO FUTURE JENNA YOU CHANGED THIS FOR YOUR TESTING, CHANGE IT BACK!!!!!!!!!
+        int pointDisplay = chore.getPoints();
         intent.putExtra("ChoreNameDisplay",nameDisplay);
+        intent.putExtra("ChorePointDisplay",pointDisplay);
         startActivity(intent);
     }
 }

@@ -7,4 +7,6 @@
     <string name="string_enterRepeat">Repeating:</string>
     <string name="string_enterDate">Due Date: </string>
     <string name="string_enterDescription">Description: (optional)</string>
+    <string name="strin_choreName">Chore Name 1</string>
+    <string name="string_toHome">To Home</string>
 </resources>

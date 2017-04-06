@@ -5,13 +5,6 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/NameDisplay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/string_name"
-        android:textSize="30sp" />
-
-    <TextView
         android:id="@+id/ChoreName"
         android:layout_width="match_parent"
         android:layout_height="37dp" />
@@ -75,5 +68,11 @@
         android:id="@+id/Description"
         android:layout_width="match_parent"
         android:layout_height="81dp" />
+
+    <Button
+        android:id="@+id/toListButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/string_toHome" />
 
 </LinearLayout>
