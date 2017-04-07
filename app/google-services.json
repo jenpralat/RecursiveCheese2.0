@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "731189235575",
+    "firebase_url": "https://chore-cloud.firebaseio.com",
+    "project_id": "chore-cloud",
+    "storage_bucket": "chore-cloud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731189235575:android:ee02d7289db08e7a",
+        "android_client_info": {
+          "package_name": "com.example.jenna.chorecloud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731189235575-ll8ehdlel4t1agoh2on05l15t7gn0tvn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1vfbTA8JqAsbKgQwei5Q3VdJo49NR-hI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

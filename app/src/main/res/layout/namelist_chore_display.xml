@@ -3,17 +3,4 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttom_chore1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="newIntent [MakeChore]"
-        android:text="@string/strin_choreName" />
-
-    <Button
-        android:id="@+id/button_chore2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/strin_choreName" />
-
 </LinearLayout>

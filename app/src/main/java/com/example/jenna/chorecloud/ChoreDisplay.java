@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class ChoreDisplay extends AppCompatActivity {
 
-    protected void onCreate(Bundle savedInstanceState, View view) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chore_display);
 
@@ -25,12 +25,10 @@ public class ChoreDisplay extends AppCompatActivity {
         TextView ChoreNameView = (TextView) findViewById(R.id.ChoreName);
         TextView PointValueView = (TextView) findViewById(R.id.PointValue);
         ChoreNameView.setText(message);
-
-        onClick(view);
     }
 
-    public void onClick(View view) {
-        Intent i = new Intent(getApplicationContext(),NameListChoreDisplay.class);
+    public void onClick(View view){
+        Intent i = new Intent(this, NameListChoreDisplay.class);
         startActivity(i);
     }
 
