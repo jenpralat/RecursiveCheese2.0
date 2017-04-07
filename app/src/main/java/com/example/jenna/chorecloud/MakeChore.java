@@ -76,5 +76,3 @@ public class MakeChore extends AppCompatActivity {
     }
 
 }
-
-
