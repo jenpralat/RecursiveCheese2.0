@@ -23,6 +23,7 @@
                 android:value=".MakeChore" />
         </activity>
         <activity android:name=".NameListChoreDisplay"/>
+
     </application>
 
 </manifest>
