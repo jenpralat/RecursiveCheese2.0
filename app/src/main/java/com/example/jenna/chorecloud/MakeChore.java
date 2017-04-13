@@ -2,18 +2,14 @@ package com.example.jenna.chorecloud;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
-import android.content.Context;
-import android.support.v4.app.NotificationCompat;
-
-
-
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
@@ -53,26 +49,38 @@ public class MakeChore extends AppCompatActivity {
 
     public void newIntent(View view, Chore chore){
         Intent intent = new Intent(this, ChoreDisplay.class);
-        String nameDisplay = chore.getName();
+        String nameDisplay = "Wash the Dishes";//YO FUTURE JENNA YOU CHANGED THIS FOR YOUR TESTING, CHANGE IT BACK!!!!!!!!!
         int pointDisplay = chore.getPoints();
-        Double timeDisplay = chore.getTime();
-        String descriptionDisplay = chore.getDesc();
         intent.putExtra("ChoreNameDisplay",nameDisplay);
         intent.putExtra("ChorePointDisplay",pointDisplay);
         startActivity(intent);
     }
-
     public void SendNotification(View view){
-        //Get an instance of Notification Manager
+
+        // Creates an Intent for the Activity
+        Intent intent = new Intent(this, ChoreDisplay.class);
+
+        // Sets the Activity to start in a new, empty task
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        // Creates the PendingIntent
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Creates a Builder object.
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-        mBuilder.setContentTitle("Chore Notification!");
-        mBuilder.setContentText("Please Work");
+        mBuilder.setContentTitle("ChoreCloud");
+        mBuilder.setContentText("A new chore was created!");
         mBuilder.setSmallIcon(android.R.drawable.ic_menu_report_image);
-        // Gets an instance of the NotificationManager service//
-        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, ChoreDisplay.class), 0);
-        Resources r = getResources();
+        // Puts the PendingIntent into the notification builder
+        mBuilder.setContentIntent(pendingIntent);
+
+        // Notifications are issued by sending them to the NotificationManager system service
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(0, mBuilder.build());
+
+        // Passes the Notification object to the NotificationManager.
+        mNotificationManager.notify(1, mBuilder.build());
     }
 
 }
+
+
