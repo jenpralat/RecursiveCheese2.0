@@ -77,7 +77,7 @@ public class MakeChore extends AppCompatActivity {
         // Notifications are issued by sending them to the NotificationManager system service
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        // Passes the Notification object to the NotificationManager
+        // Passes the Notification object to the NotificationManager.
         mNotificationManager.notify(1, mBuilder.build());
     }
 
