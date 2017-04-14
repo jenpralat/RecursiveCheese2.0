@@ -40,29 +40,29 @@ public class Child {
      * Creates an instance of the child class with a name of David E Buger, and with zero points
      */
     public String getName() {
-        return childName;
+        return this.childName;
     }
     /*
      * @return the child's name
      */
     public int getPoints() {
-        return points;
+        return this.points;
     }
     /*
      * @return the amount of points the child has
      */
 
     public ArrayList getChores() {
-        return chores;
+        return this.chores;
     }
     /*
      * @return the list of chores assigned to the child
      */
     public ArrayList getRewards() {
-        return rewards;
+        return this.rewards;
         }
         /*
-         * @return the list of chores the child can unlock
+         * @return the list of rewards the child can unlock
          */
 
 
