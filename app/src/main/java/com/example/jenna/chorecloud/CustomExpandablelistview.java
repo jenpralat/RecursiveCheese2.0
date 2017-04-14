@@ -103,7 +103,7 @@ public class CustomExpandablelistview extends BaseExpandableListAdapter{
 
     /**
      * Get the ID of a group (title)
-     * @param listPosition Poisition within a list
+     * @param listPosition Position within a list
      * @return The Id of a group
      */
     @Override
@@ -114,7 +114,7 @@ public class CustomExpandablelistview extends BaseExpandableListAdapter{
     /**
      * Get the formatted title that will displayed in the list when expanded or not
      * @param listPosition Position within the list of titles
-     * @param isExpanded Boolean value that represents if the list is expaned or not
+     * @param isExpanded Boolean value that represents if the list is expanded or not
      * @param convertView View that will determine formatting of list
      * @param parent View of parent
      * @return View with title filled in
