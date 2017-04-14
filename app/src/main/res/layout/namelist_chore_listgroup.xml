@@ -7,9 +7,9 @@
         android:id="@+id/listTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:paddingBottom="10dp"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-        android:textColor="@android:color/black"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"/>
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 </LinearLayout>
