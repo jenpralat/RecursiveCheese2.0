@@ -66,10 +66,14 @@ public class Child {
          */
 
 
-    public void setName(String name) {
-        childName = name;
+    public void setName(String name) {this.childName = name;
     }
-    /*
+      /*
      * Updates the child's name
+     */
+      public void setPoints(int addedPoints) {this.points += addedPoints;
+      }
+      /*
+     * Updates the child's point totals.
      */
 }
