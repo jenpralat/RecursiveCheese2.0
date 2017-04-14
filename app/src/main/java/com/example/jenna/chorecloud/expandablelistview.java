@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by Jenna on 4/7/2017.
- */
 
 public class expandablelistview {
+
+    /**
+     * Create the HashMap of strings that will be displayed under the headers in the list
+     * @return an expandableListDetail that has the strings that will be displayed in the
+     */
     public static HashMap<String, List<String>> getData() {
         HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
 
