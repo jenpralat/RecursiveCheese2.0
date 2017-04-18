@@ -6,7 +6,15 @@
     <ExpandableListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="462dp"
+        android:dividerHeight="0.5dp"
         android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
-        android:dividerHeight="0.5dp"/>
+        android:layout_weight="0.96" />
+
+    <Button
+        android:id="@+id/buttonMakeChore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickMakeChore"
+        android:text="@string/string_ToMakeChore" />
 </LinearLayout>

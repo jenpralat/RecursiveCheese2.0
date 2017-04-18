@@ -7,7 +7,7 @@
     <TextView
         android:id="@+id/ChoreName"
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="match_parent"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
@@ -20,7 +20,7 @@
     <TextView
         android:id="@+id/PointValue"
         android:layout_width="match_parent"
-        android:layout_height="41dp" />
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/TimeDisplay"
@@ -32,7 +32,7 @@
     <TextView
         android:id="@+id/Time"
         android:layout_width="match_parent"
-        android:layout_height="42dp" />
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/RepeatDisplay"
@@ -44,7 +44,7 @@
     <TextView
         android:id="@+id/Repeat"
         android:layout_width="match_parent"
-        android:layout_height="46dp" />
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/DateDisplay"
@@ -56,7 +56,7 @@
     <TextView
         android:id="@+id/DueDate"
         android:layout_width="match_parent"
-        android:layout_height="52dp" />
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/DescriptionDisplay"
@@ -68,7 +68,7 @@
     <TextView
         android:id="@+id/Description"
         android:layout_width="match_parent"
-        android:layout_height="81dp" />
+        android:layout_height="match_parent" />
 
     <Button
         android:id="@+id/toListButton"
