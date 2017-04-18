@@ -9,4 +9,5 @@
     <string name="string_enterDescription">Description: (optional)</string>
     <string name="strin_choreName">Chore Name 1</string>
     <string name="string_toHome">To Home</string>
+    <string name="string_ToMakeChore">Make a New Chore</string>
 </resources>

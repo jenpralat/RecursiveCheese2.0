@@ -98,4 +98,13 @@ public class NameListChoreDisplay extends AppCompatActivity{
         });
     }
 
+    /**
+     * Go to the Make Chore intent
+     * @param view View of the new intent
+     */
+    public void onClickMakeChore(View view){
+        Intent i = new Intent(this, MakeChore.class);
+        startActivity(i);
+    }
+
 }

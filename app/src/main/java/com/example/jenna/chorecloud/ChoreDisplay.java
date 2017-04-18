@@ -27,6 +27,7 @@ public class ChoreDisplay extends AppCompatActivity {
         ChoreNameView.setText(message);
     }
 
+    //Go to home intent that displays the list of chores
     public void onClick(View view){
         Intent i = new Intent(this, NameListChoreDisplay.class);
         startActivity(i);
