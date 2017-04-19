@@ -14,6 +14,9 @@ import android.support.v4.app.NotificationCompat;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 import com.firebase.client.Firebase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MakeChore extends AppCompatActivity {
 
     @Override
@@ -24,8 +27,8 @@ public class MakeChore extends AppCompatActivity {
     }
 
     public void MakeChore (View view){
-
-        //FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("server/child/chore");
 
         EditText name = (EditText) findViewById(R.id.enterName);
         EditText point = (EditText) findViewById(R.id.enterPoint);
@@ -63,16 +66,29 @@ public class MakeChore extends AppCompatActivity {
     }
 
     public void SendNotification(View view){
-        //Get an instance of Notification Manager
+
+        // Creates an Intent for the Activity
+        Intent intent = new Intent(this, ChoreDisplay.class);
+
+        // Sets the Activity to start in a new, empty task
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        // Creates the PendingIntent
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Creates a Builder object.
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-        mBuilder.setContentTitle("Chore Notification!");
-        mBuilder.setContentText("Please Work");
+        mBuilder.setContentTitle("ChoreCloud");
+        mBuilder.setContentText("A new chore was created!");
         mBuilder.setSmallIcon(android.R.drawable.ic_menu_report_image);
-        // Gets an instance of the NotificationManager service//
-        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, ChoreDisplay.class), 0);
-        Resources r = getResources();
+        // Puts the PendingIntent into the notification builder
+        mBuilder.setContentIntent(pendingIntent);
+
+        // Notifications are issued by sending them to the NotificationManager system service
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(0, mBuilder.build());
+
+        // Passes the Notification object to the NotificationManager.
+        mNotificationManager.notify(1, mBuilder.build());
     }
 
 }

@@ -24,9 +24,9 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
-        compile 'com.google.firebase:firebase-core:10.2.1'
-        compile 'com.google.firebase:firebase-database:10.2.1'
-        compile 'com.firebase:firebase-client-android:2.5.2'
+        compile 'com.google.firebase:firebase-core:10.2.1' //Does this have to go done with the other one
+        compile 'com.google.firebase:firebase-database:10.2.1' //Do we have to get rid of this part
+        compile 'com.firebase:firebase-client-android:2.5.2' //Does this have to go done with the other one
         testCompile 'junit:junit:4.12'
 
     })
@@ -34,6 +34,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:25.3.0'
+    compile 'com.google.firebase:firebase-database:10.2.1' //This has been added (4/19) to test something
 }
 apply plugin: 'com.google.gms.google-services'
 
