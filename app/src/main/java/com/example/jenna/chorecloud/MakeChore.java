@@ -17,6 +17,9 @@ import com.firebase.client.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MakeChore extends AppCompatActivity {
 
     @Override
@@ -28,7 +31,7 @@ public class MakeChore extends AppCompatActivity {
 
     public void MakeChore (View view){
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("server/child/chore");
+        DatabaseReference ref = database.getReference();
 
         EditText name = (EditText) findViewById(R.id.enterName);
         EditText point = (EditText) findViewById(R.id.enterPoint);
@@ -49,9 +52,14 @@ public class MakeChore extends AppCompatActivity {
         Double timeDouble = parseDouble(timeStr);
         Double dueDouble = parseDouble(dueStr);
 
-        Chore chore = new Chore(pointInt, nameStr, timeDouble, descriptionStr, dueDouble, repeatB);
+        Chore newchore = new Chore(pointInt, nameStr, timeDouble, descriptionStr, dueDouble, repeatB);
 
-        newIntent(view, chore);
+        DatabaseReference choreRef = ref.child("Chores");
+        DatabaseReference newchoreRef = choreRef.push();
+        newchoreRef.setValue(newchore);
+
+        SendNotification(view);
+        newIntent(view, newchore);
     }
 
     public void newIntent(View view, Chore chore){
@@ -60,8 +68,14 @@ public class MakeChore extends AppCompatActivity {
         int pointDisplay = chore.getPoints();
         Double timeDisplay = chore.getTime();
         String descriptionDisplay = chore.getDesc();
+        Boolean repeatDisplay = chore.getRepeat();
+        Double deadlineDisplay = chore.getDeadline();
         intent.putExtra("ChoreNameDisplay",nameDisplay);
         intent.putExtra("ChorePointDisplay",pointDisplay);
+        intent.putExtra("ChoreTimeDisplay", timeDisplay);
+        intent.putExtra("ChoreDescriptionDisplay", descriptionDisplay);
+        intent.putExtra("ChoreRepeatDisplay", repeatDisplay);
+        intent.putExtra("ChoreDeadlineDisplay", deadlineDisplay);
         startActivity(intent);
     }
 
