@@ -25,8 +25,7 @@ public class Chore {
             choreDeadline = 0;
             choreRepeat = false;
         }
-        /*
-         * A constructor for the chore class.
+        /* A constructor for the chore class.
          * @param points: The amount of points the chore is worth. (int)
          * @param name: The name of the chore. (string)
          * @param time: Approximately how long the chore will take. (double)
@@ -40,6 +39,15 @@ public class Chore {
             choreName = name;
             choreTime = time;
             choreDescription = desc;
+            choreDeadline = due;
+            choreRepeat = repeat;
+        }
+
+        public Chore(int points, String name, double time, double due, boolean repeat){
+            pointValue = points;
+            choreName = name;
+            choreTime = time;
+            choreDescription = "-";
             choreDeadline = due;
             choreRepeat = repeat;
         }

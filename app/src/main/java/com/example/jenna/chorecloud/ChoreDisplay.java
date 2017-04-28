@@ -6,25 +6,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import static java.lang.Boolean.FALSE;
+
 /**
  * Created by rithi on 3/31/2017.
  */
 
 public class ChoreDisplay extends AppCompatActivity {
 
+    //Display the new chore
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chore_display);
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
-        String message = intent.getStringExtra("ChoreNameDisplay");
+        String name = intent.getStringExtra("ChoreNameDisplay");
         int point = intent.getIntExtra("ChorePointDisplay", 0);
+        Double time = intent.getDoubleExtra("ChoreTimeDisplay", 0);
+        String desc = intent.getStringExtra("ChoreDescribtionDisplay");
+        Boolean repeat = intent.getBooleanExtra("ChoreRepeatDisplay",FALSE);
+        Double deadline = intent.getDoubleExtra("ChoreDeadlineDisplay", 0);
 
-        // Capture the layout's TextView and set the string as its text
+        // Capture the layout's TextViews
         TextView ChoreNameView = (TextView) findViewById(R.id.ChoreName);
         TextView PointValueView = (TextView) findViewById(R.id.PointValue);
-        ChoreNameView.setText(message);
+        TextView TimeReqView = (TextView) findViewById(R.id.Time);
+        TextView DescriptionView = (TextView) findViewById(R.id.Description);
+        TextView RepeatView = (TextView) findViewById(R.id.Repeat);
+        TextView DeadlineView = (TextView) findViewById(R.id.DueDate);
+
+        //Fill in the text views with the correct strings
+        ChoreNameView.setText(name);
+        PointValueView.setText(point);
+        TimeReqView.setText(time.toString());
+        DescriptionView.setText(desc);
+        RepeatView.setText(repeat.toString());
+        DeadlineView.setText(deadline.toString());
+
     }
 
     //Go to home intent that displays the list of chores

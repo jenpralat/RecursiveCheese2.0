@@ -17,8 +17,6 @@ import com.firebase.client.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class MakeChore extends AppCompatActivity {
 
@@ -29,6 +27,10 @@ public class MakeChore extends AppCompatActivity {
 
     }
 
+    /**
+     * Create a chore, and save it to the database
+     * @param view The xml view where the chore info is inputed
+     */
     public void MakeChore (View view){
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference();
@@ -52,7 +54,10 @@ public class MakeChore extends AppCompatActivity {
         Double timeDouble = parseDouble(timeStr);
         Double dueDouble = parseDouble(dueStr);
 
-        Chore newchore = new Chore(pointInt, nameStr, timeDouble, descriptionStr, dueDouble, repeatB);
+        Chore newchore = new Chore(pointInt, nameStr, timeDouble, dueDouble, repeatB);
+        if(!descriptionStr.isEmpty()){
+            newchore.setDesc(descriptionStr);
+        }
 
         DatabaseReference choreRef = ref.child("Chores");
         DatabaseReference newchoreRef = choreRef.push();
@@ -62,6 +67,11 @@ public class MakeChore extends AppCompatActivity {
         newIntent(view, newchore);
     }
 
+    /**
+     * Create a new intent where the new chore will be displayed
+     * @param view The view of the parent intent
+     * @param chore The chore that will be displayed
+     */
     public void newIntent(View view, Chore chore){
         Intent intent = new Intent(this, ChoreDisplay.class);
         String nameDisplay = chore.getName();
