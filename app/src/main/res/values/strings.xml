@@ -4,9 +4,9 @@
     <string name="welcome_makeChore">Create your Chore:</string>
     <string name="string_name">Name of chore:</string>
     <string name="string_enterPoint">Point value:</string>
-    <string name="string_enterTime">Estimated time required:</string>
+    <string name="string_enterTime">Estimated time required (hours):</string>
     <string name="string_enterRepeat">Repeating:</string>
-    <string name="string_enterDate">Due Date: </string>
+    <string name="string_enterDate">Due in (hours): </string>
     <string name="string_enterDescription">Description: (optional)</string>
     <string name="strin_choreName">Chore Name 1</string>
     <string name="string_toHome">To Home</string>

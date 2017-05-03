@@ -16,6 +16,7 @@ import com.firebase.client.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class MakeChore extends AppCompatActivity {
 
     @Override
@@ -25,9 +26,13 @@ public class MakeChore extends AppCompatActivity {
 
     }
 
+    /**
+     * Create a chore, and save it to the database
+     * @param view The xml view where the chore info is inputed
+     */
     public void MakeChore (View view){
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("server/child/chore");
+        DatabaseReference ref = database.getReference();
 
         EditText name = (EditText) findViewById(R.id.enterName);
         EditText point = (EditText) findViewById(R.id.enterPoint);
@@ -48,19 +53,38 @@ public class MakeChore extends AppCompatActivity {
         Double timeDouble = parseDouble(timeStr);
         Double dueDouble = parseDouble(dueStr);
 
-        Chore chore = new Chore(pointInt, nameStr, timeDouble, descriptionStr, dueDouble, repeatB);
+        Chore newchore = new Chore(pointInt, nameStr, timeDouble, dueDouble, repeatB);
+        if(!descriptionStr.isEmpty()){
+            newchore.setDesc(descriptionStr);
+        }
 
-        newIntent(view, chore);
+        DatabaseReference choreRef = ref.child("Chores");
+        DatabaseReference newchoreRef = choreRef.push();
+        newchoreRef.setValue(newchore);
+
+        SendNotification(view);
+        newIntent(view, newchore);
     }
 
+    /**
+     * Create a new intent where the new chore will be displayed
+     * @param view The view of the parent intent
+     * @param chore The chore that will be displayed
+     */
     public void newIntent(View view, Chore chore){
         Intent intent = new Intent(this, ChoreDisplay.class);
         String nameDisplay = chore.getName();
         int pointDisplay = chore.getPoints();
         Double timeDisplay = chore.getTime();
         String descriptionDisplay = chore.getDesc();
+        Boolean repeatDisplay = chore.getRepeat();
+        Double deadlineDisplay = chore.getDeadline();
         intent.putExtra("ChoreNameDisplay",nameDisplay);
         intent.putExtra("ChorePointDisplay",pointDisplay);
+        intent.putExtra("ChoreTimeDisplay", timeDisplay);
+        intent.putExtra("ChoreDescriptionDisplay", descriptionDisplay);
+        intent.putExtra("ChoreRepeatDisplay", repeatDisplay);
+        intent.putExtra("ChoreDeadlineDisplay", deadlineDisplay);
         startActivity(intent);
     }
 
