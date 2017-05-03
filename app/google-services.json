@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "731189235575-k1bg3238vtqf3t9q7cje9k4dck1v2lma.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.jenna.chorecloud",
-            "certificate_hash": "c11016c3f50dfb80f3dc698ce193cf715823860c"
-          }
-        },
-        {
           "client_id": "731189235575-ll8ehdlel4t1agoh2on05l15t7gn0tvn.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "731189235575-ll8ehdlel4t1agoh2on05l15t7gn0tvn.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
