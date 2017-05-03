@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="time" />
+        android:inputType="numberDecimal" />
 
     <Switch
         android:id="@+id/enterRepeat"
@@ -78,7 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="date" />
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/enterDescriptionText"

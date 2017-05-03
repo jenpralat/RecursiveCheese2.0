@@ -66,6 +66,12 @@
         android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
         android:id="@+id/Description"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
