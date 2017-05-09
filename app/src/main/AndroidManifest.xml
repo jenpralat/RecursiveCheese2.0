@@ -17,10 +17,12 @@
                 android:value=".MakeChore" />
         </activity>
         <activity android:name=".NameListChoreDisplay">
+        </activity>
+        <activity android:name=".Home">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
 
     </application>

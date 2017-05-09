@@ -10,4 +10,6 @@
     <string name="strin_choreName">Chore Name 1</string>
     <string name="string_toHome">To Home</string>
     <string name="string_ToMakeChore">Make a New Chore</string>
+    <string name="welcome">Welcome to ChoreCloud!</string>
+    <string name="welcome_button">GET STARTED</string>
 </resources>
