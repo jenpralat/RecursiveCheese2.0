@@ -32,7 +32,7 @@ public class MakeChore extends AppCompatActivity {
      */
     public void MakeChore (View view){
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference();
+        DatabaseReference ref = database.getReference("Chores");
 
         EditText name = (EditText) findViewById(R.id.enterName);
         EditText point = (EditText) findViewById(R.id.enterPoint);
@@ -53,13 +53,12 @@ public class MakeChore extends AppCompatActivity {
         Double timeDouble = parseDouble(timeStr);
         Double dueDouble = parseDouble(dueStr);
 
-        Chore newchore = new Chore(pointInt, nameStr, timeDouble, dueDouble, repeatB);
+        Chore newchore = new Chore(pointInt, nameStr, repeatB, timeDouble.doubleValue(), dueDouble.doubleValue());
         if(!descriptionStr.isEmpty()){
             newchore.setDesc(descriptionStr);
         }
 
-        DatabaseReference choreRef = ref.child("Chores");
-        DatabaseReference newchoreRef = choreRef.push();
+        DatabaseReference newchoreRef = ref.push();
         newchoreRef.setValue(newchore);
 
         SendNotification(view);
@@ -76,7 +75,7 @@ public class MakeChore extends AppCompatActivity {
         String nameDisplay = chore.getName();
         int pointDisplay = chore.getPoints();
         Double timeDisplay = chore.getTime();
-        String descriptionDisplay = chore.getDesc();
+        String descriptionDisplay = chore.getDescription();
         Boolean repeatDisplay = chore.getRepeat();
         Double deadlineDisplay = chore.getDeadline();
         intent.putExtra("ChoreNameDisplay",nameDisplay);

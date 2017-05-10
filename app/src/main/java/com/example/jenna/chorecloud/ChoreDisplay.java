@@ -23,10 +23,10 @@ public class ChoreDisplay extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("ChoreNameDisplay");
         int point = intent.getIntExtra("ChorePointDisplay", 0);
-        Double time = intent.getDoubleExtra("ChoreTimeDisplay", 0);
+        double time = intent.getDoubleExtra("ChoreTimeDisplay", 0);
         String desc = intent.getStringExtra("ChoreDescribtionDisplay");
-        Boolean repeat = intent.getBooleanExtra("ChoreRepeatDisplay",FALSE);
-        Double deadline = intent.getDoubleExtra("ChoreDeadlineDisplay", 0);
+        boolean repeat = intent.getBooleanExtra("ChoreRepeatDisplay",FALSE);
+        double deadline = intent.getDoubleExtra("ChoreDeadlineDisplay", 0);
 
         // Capture the layout's TextViews
         TextView ChoreNameView = (TextView) findViewById(R.id.ChoreName);
@@ -38,11 +38,11 @@ public class ChoreDisplay extends AppCompatActivity {
 
         //Fill in the text views with the correct strings
         ChoreNameView.setText(name);
-        PointValueView.setText(point);
-        TimeReqView.setText(time.toString());
+        PointValueView.setText(Integer.toString(point));
+        TimeReqView.setText(Double.toString(time));
         DescriptionView.setText(desc);
-        RepeatView.setText(repeat.toString());
-        DeadlineView.setText(deadline.toString());
+        RepeatView.setText(Boolean.toString(repeat));
+        DeadlineView.setText(Double.toString(deadline));
 
     }
 

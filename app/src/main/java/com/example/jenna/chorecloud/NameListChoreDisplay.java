@@ -8,6 +8,13 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,20 +24,6 @@ import java.util.List;
  */
 
 public class NameListChoreDisplay extends AppCompatActivity{
-
-   /** protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.namelist_chore_display);
-    }
-
-    public void newDetailedIntent(View view, Chore chore){
-        Intent i = new Intent(this, ChoreDisplay.class);
-        String nameDisplay = "Wash the Dishes";
-        int pointDisplay = 999;
-        //intent.putExtra("ChoreNameDisplay",nameDisplay);
-        //intent.putExtra("ChorePointDisplay",pointDisplay);
-        startActivity(i);
-    } **/
 
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
@@ -46,6 +39,7 @@ public class NameListChoreDisplay extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.namelist_chore_display); //View (formatting) of list
         expandableListView = (ExpandableListView) findViewById(R.id.listView); //Declares the expandableListView
+
         expandableListDetail = expandablelistview.getData(); //Populates the information within the list
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet()); //Declare the ArrayList of titles
         expandableListAdapter = new CustomExpandablelistview(this, expandableListTitle, expandableListDetail); //Declare instance of CustomExpandablelistview class
@@ -106,5 +100,4 @@ public class NameListChoreDisplay extends AppCompatActivity{
         Intent i = new Intent(this, MakeChore.class);
         startActivity(i);
     }
-
 }
