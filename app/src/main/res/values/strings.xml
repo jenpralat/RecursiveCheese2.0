@@ -11,7 +11,7 @@
     <string name="strin_choreName">Chore Name 1</string>
     <string name="string_toHome">To Home</string>
     <string name="string_ToMakeChore">Make a New Chore</string>
-    <string name="string_notnull">not null</string>
+    <string name="string_notnull">Not null</string>
 
     <string name="label_google_sign_in">Firebase + Google Sign In</string>
     <string name="desc_google_sign_in">Use a Google Sign In credential to authenticate with Firebase.</string>
