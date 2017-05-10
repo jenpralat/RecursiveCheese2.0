@@ -4,13 +4,14 @@
     <string name="welcome_makeChore">Create your Chore:</string>
     <string name="string_name">Name of chore:</string>
     <string name="string_enterPoint">Point value:</string>
-    <string name="string_enterTime">Estimated time required (hours):</string>
+    <string name="string_enterTime">Duration:</string>
     <string name="string_enterRepeat">Repeating:</string>
-    <string name="string_enterDate">Due in (hours): </string>
+    <string name="string_enterDate">Date: </string>
     <string name="string_enterDescription">Description: (optional)</string>
     <string name="strin_choreName">Chore Name 1</string>
     <string name="string_toHome">To Home</string>
     <string name="string_ToMakeChore">Make a New Chore</string>
+    <string name="string_notnull">not null</string>
 
     <string name="label_google_sign_in">Firebase + Google Sign In</string>
     <string name="desc_google_sign_in">Use a Google Sign In credential to authenticate with Firebase.</string>
