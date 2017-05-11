@@ -6,25 +6,18 @@ package com.example.jenna.chorecloud;
 
 public class Chore {
 
-        private int pointValue;
-        private String choreName;
-        private double choreTime;
-        private String choreDescription;
-        private double choreDeadline;
-        private boolean choreRepeat;
+        private int points;
+        private String name;
+        private double time;
+        private String description;
+        private double deadline;
+        private boolean repeat;
 //CONSTRUCTORS
         /**
          * An empty constructor for the chore class.
          */
-        public Chore()
-        {
-            pointValue = 0;
-            choreName = "";
-            choreTime = 0;
-            choreDescription = "";
-            choreDeadline = 0;
-            choreRepeat = false;
-        }
+        public Chore() {}
+
         /* A constructor for the chore class.
          * @param points: The amount of points the chore is worth. (int)
          * @param name: The name of the chore. (string)
@@ -35,21 +28,21 @@ public class Chore {
          */
         public Chore(int points, String name, double time, String desc, double due, boolean repeat)
         {
-            pointValue = points;
-            choreName = name;
-            choreTime = time;
-            choreDescription = desc;
-            choreDeadline = due;
-            choreRepeat = repeat;
+            this.points = points;
+            this.name = name;
+            this.time = time;
+            this.description = desc;
+            deadline = due;
+            this.repeat = repeat;
         }
 
-        public Chore(int points, String name, double time, double due, boolean repeat){
-            pointValue = points;
-            choreName = name;
-            choreTime = time;
-            choreDescription = "-";
-            choreDeadline = due;
-            choreRepeat = repeat;
+        public Chore(int points, String name, boolean repeat, double time, double due){
+            this.points = points;
+            this.name = name;
+            this.time = time;
+            this.description = "-";
+            deadline = due;
+            this.repeat = repeat;
         }
 //GETTERS
         /**
@@ -58,7 +51,7 @@ public class Chore {
          */
         public int getPoints()
         {
-            return this.pointValue;
+            return this.points;
         }
         /**
          * A getter for the name of the chore.
@@ -66,56 +59,42 @@ public class Chore {
          */
         public String getName()
         {
-            return this.choreName;
+            return this.name;
         }
         /**
          * A getter for the duration time of the chore.
          * @return The duration time of the chore.
          */
-        public double getTime()
-        {
-            return this.choreTime;
-        }
+        public double getTime(){return this.time;}
         /**
          * A getter for the chore's description.
          * @return The description of the chore.
          */
-        public String getDesc()
+        public String getDescription()
         {
-            return this.choreDescription;
+            return this.description;
         }
         /**
          * A getter for the chore's deadline.
          * @return The deadline.
          */
-        public Double getDeadline()
-        {
-            return this.choreDeadline;
-        }
+        public double getDeadline(){return this.deadline;}
         /**
          * A getter for whether or not the chore should repeat.
          * @return The deadline.
          */
         public boolean getRepeat()
         {
-            return this.choreRepeat;
+            return this.repeat;
         }
 //SETTERS
         /**
          * Sets the value of the chore.
          * @param points, how many points the chore is worth.
          */
-        public void setPoints(int points)
+       public void setPoints(int points)
         {
-            pointValue = points;
-        }
-        /**
-         * Renames the chore.
-         * @param name, The name of the chore.
-         */
-        public void getName(String name)
-        {
-            choreName = name;
+            this.points = points;
         }
         /**
          * Sets the amount of time the chore should take.
@@ -123,7 +102,7 @@ public class Chore {
          */
         public void setTime(double time)
         {
-            choreTime = time;
+            this.time = time;
         }
         /**
          * Sets the description of the chore.
@@ -131,7 +110,7 @@ public class Chore {
          */
         public void setDesc(String desc)
         {
-            choreDescription = desc;
+            this.description = desc;
         }
         /**
          * Sets the deadline of the chore.
@@ -139,14 +118,24 @@ public class Chore {
          */
         public void setDeadline(double due)
         {
-            choreDeadline = due;
+            this.deadline = due;
         }
-        /**
+       /**
          * Sets whether or not the chore repeats.
          * @param repeat, true = it repeats, false = it doesn't.
          */
-        public void setRepeat(boolean repeat)
+       public void setRepeat(boolean repeat)
         {
-            choreRepeat = repeat;
+            this.repeat = repeat;
         }
+
+        /**
+        * Sets the chore name
+        * @param name Name of the chore
+        */
+        public void setName (String name)
+        {
+            this.name = name;
+        }
+
 }
