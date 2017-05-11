@@ -3,9 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AFG_ChoreCloud.iml" filepath="$PROJECT_DIR$/AFG_ChoreCloud.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AppsForGood_JSS.iml" filepath="$PROJECT_DIR$/AppsForGood_JSS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ChoreCloud.iml" filepath="$PROJECT_DIR$/ChoreCloud.iml" />
-      <module fileurl="file://$PROJECT_DIR$/RecursiveCheese2.0.iml" filepath="$PROJECT_DIR$/RecursiveCheese2.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
