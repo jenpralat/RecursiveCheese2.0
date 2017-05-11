@@ -218,6 +218,6 @@ public class GoogleSigninActivity extends BaseActivity implements
             signOut();
         } else if (i == R.id.disconnect_button) {
             revokeAccess();
-        }
+         }
     }
 }

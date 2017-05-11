@@ -13,9 +13,6 @@
     <string name="string_ToMakeChore">Make a New Chore</string>
     <string name="string_notnull">Not null</string>
 
-    <string name="welcome_button">Get Started</string>
-    <string name="welcome">Welcome to Chore Cloud</string>
-
     <string name="label_google_sign_in">Firebase + Google Sign In</string>
     <string name="desc_google_sign_in">Use a Google Sign In credential to authenticate with Firebase.</string>
 
