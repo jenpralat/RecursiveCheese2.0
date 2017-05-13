@@ -22,7 +22,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MakeChore" />
         </activity>
-
         <activity android:name=".NameListChoreDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
