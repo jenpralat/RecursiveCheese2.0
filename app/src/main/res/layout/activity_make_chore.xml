@@ -18,7 +18,7 @@
         android:text="@string/welcome_makeChore"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:textColor="@color/colorPrimaryDark"
+
         android:textSize="36sp"
         android:textStyle="bold" />
 
