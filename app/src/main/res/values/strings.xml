@@ -1,18 +1,19 @@
 <resources>
     <string name="app_name">ChoreCloud</string>
 
-    <string name="welcome_makeChore">Create your Chore:</string>
-    <string name="string_name">Name of chore:</string>
-    <string name="string_enterPoint">Point value:</string>
-    <string name="string_enterTime">Duration:</string>
-    <string name="string_enterRepeat">Repeating:</string>
-    <string name="string_enterDate">Date: </string>
-    <string name="string_enterDescription">Description: (optional)</string>
+    <string name="welcome_makeChore">Create your Chore</string>
+    <string name="string_name">Name of Chore:</string>
+    <string name="string_enterPoint">Point Value:</string>
+    <string name="string_enterTime">Duration (min):</string>
+    <string name="string_enterRepeat">Repeat:</string>
+    <string name="string_enterDate">Due Date: </string>
+    <string name="string_enterDescription">Description (optional):</string>
+    <string name="string_enterDesc">Description:</string>
     <string name="string_choreName">Chore Name 1</string>
     <string name="string_toHome">To Home</string>
     <string name="string_ToMakeChore">Make a New Chore</string>
     <string name="string_notnull">Not null</string>
-    <string name="welcome">Welcome to the Chore Cloud!</string>
+    <string name="welcome">Welcome to the ChoreCloud!</string>
     <string name="welcome_button">Get started</string>
 
     <string name="label_google_sign_in">Firebase + Google Sign In</string>

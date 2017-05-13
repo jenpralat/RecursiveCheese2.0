@@ -10,12 +10,17 @@
         android:paddingBottom="10dp"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
         android:paddingTop="10dp"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/ChoreComplete"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chore Completed" />
+        android:fontFamily="casual"
+        android:text="Chore Completed"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 </LinearLayout>

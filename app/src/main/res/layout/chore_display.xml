@@ -7,80 +7,102 @@
     <TextView
         android:id="@+id/ChoreName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:layout_height="61dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="36sp" />
 
     <TextView
         android:id="@+id/PointDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="@string/string_enterPoint"
-        android:textSize="30sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/PointValue"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="37dp"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/TimeDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="@string/string_enterTime"
-        android:textSize="30sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Time"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="40dp"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/RepeatDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="@string/string_enterRepeat"
-        android:textSize="30sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Repeat"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="37dp"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/DateDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="@string/string_enterDate"
-        android:textSize="30sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/DueDate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="39dp"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/DescriptionDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/string_enterDescription"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:fontFamily="casual"
+        android:text="@string/string_enterDesc"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Description"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="42dp"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/toListButton"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="67dp"
+        android:background="@color/colorAccent"
+        android:elevation="1dp"
+        android:fontFamily="casual"
         android:onClick="onClick"
-        android:text="@string/string_toHome" />
+        android:text="@string/string_toHome"
+        android:textColorLink="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
