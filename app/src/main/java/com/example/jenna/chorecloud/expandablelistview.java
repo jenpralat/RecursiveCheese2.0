@@ -1,14 +1,10 @@
 package com.example.jenna.chorecloud;
 
-import android.util.Log;
-
-import com.firebase.client.FirebaseError;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +34,7 @@ public class expandablelistview {
                 getUpdates(dataSnapshot);
             }
             @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) { }
+            public void onChildRemoved(DataSnapshot dataSnapshot) { getUpdates(dataSnapshot);}
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
@@ -71,5 +67,53 @@ public class expandablelistview {
                 expandableListDetail.put(chore.getName(), choreList);
             }
         }
+    }
+
+    public static void getUpdatesExclusive (DataSnapshot ds, String Chorename){
+        Chore chore;
+        for (DataSnapshot data : ds.getChildren()) {
+            chore = ds.getValue(Chore.class);
+            if (chore != null && !chore.getName().equals(Chorename)) {
+                List<String> choreList = new ArrayList<String>();
+                choreList.add("Name: " + chore.getName());
+                choreList.add("Point Value " + chore.getPoints());
+                choreList.add("Time Required " + chore.getTime());
+                choreList.add("Due in " + chore.getDeadline());
+                choreList.add("Repeating? " + chore.getRepeat());
+                choreList.add("Description " + chore.getDescription());
+                choreList.add("Chore Completed");
+
+                expandableListDetail.put(chore.getName(), choreList);
+            }
+        }
+    }
+
+    public static HashMap<String, List<String>> getDataExclusive(final String Chorename) {
+
+        // Get a reference to our posts
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("Chores");
+        //Add Listener
+        ref.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+                getUpdatesExclusive(dataSnapshot, Chorename); //Send snapshot to method to put info into list
+            }
+
+            @Override
+            public void onChildChanged (DataSnapshot dataSnapshot, String prevChildKey){
+                getUpdatesExclusive(dataSnapshot, Chorename);
+            }
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) { getUpdates(dataSnapshot);}
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+
+        return expandableListDetail;
     }
 }

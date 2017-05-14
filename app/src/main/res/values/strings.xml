@@ -13,6 +13,7 @@
     <string name="string_toHome">To Home</string>
     <string name="string_ToMakeChore">Make a New Chore</string>
     <string name="string_notnull">Not null</string>
+    <string name="string_createChore">Create</string>
 
     <string name="label_google_sign_in">Firebase + Google Sign In</string>
     <string name="desc_google_sign_in">Use a Google Sign In credential to authenticate with Firebase.</string>
@@ -64,5 +65,5 @@
     <string name="email_fmt">Email: %s</string>
 
     <string name = "welcome">Welcome to ChoreCloud!</string>
-    <string name = "welcome_button">JUST DO IT</string>
+    <string name = "welcome_button">Get Started</string>
     </resources>
