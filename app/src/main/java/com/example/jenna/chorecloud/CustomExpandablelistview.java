@@ -8,7 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CustomExpandablelistview extends BaseExpandableListAdapter{
 
@@ -121,8 +125,8 @@ public class CustomExpandablelistview extends BaseExpandableListAdapter{
      */
     @Override
     public View getGroupView(int listPosition, boolean isExpanded,View convertView, ViewGroup parent) {
-        String listTitle = (String) getGroup(listPosition);
-        if (convertView == null) {
+       String listTitle = (String) getGroup(listPosition);
+       if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.namelist_chore_listgroup, null);
@@ -152,5 +156,6 @@ public class CustomExpandablelistview extends BaseExpandableListAdapter{
     public boolean isChildSelectable(int listPosition, int expandedListPosition) {
         return true;
     }
+
 }
 

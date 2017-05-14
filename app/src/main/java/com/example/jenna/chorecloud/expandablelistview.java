@@ -23,14 +23,14 @@ public class expandablelistview {
      */
     public static HashMap<String, List<String>> getData() {
 
-        // Get a reference to our posts
+         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Chores");
-
+        //Add Listener
         ref.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                getUpdates(dataSnapshot);
+                getUpdates(dataSnapshot); //Send snapshot to method to put info into list
             }
 
             @Override
@@ -38,7 +38,7 @@ public class expandablelistview {
                 getUpdates(dataSnapshot);
             }
             @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {}
+            public void onChildRemoved(DataSnapshot dataSnapshot) { }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String prevChildKey) {}
@@ -50,37 +50,26 @@ public class expandablelistview {
         return expandableListDetail;
     }
 
+    /**
+     * Takes a datasnapshot and converts it into a chore. The information for that chore is then inputted into the hashmap
+     * @param ds Datasnapshot
+     */
     public static void getUpdates (DataSnapshot ds){
         Chore chore;
-        for (DataSnapshot data : ds.getChildren()){
+        for (DataSnapshot data : ds.getChildren()) {
             chore = ds.getValue(Chore.class);
-            if(chore != null) {
+            if (chore != null) {
                 List<String> choreList = new ArrayList<String>();
                 choreList.add("Name: " + chore.getName());
-                choreList.add("Point Value" + chore.getPoints());
-                choreList.add("Time Required" + chore.getTime());
-                choreList.add("Due in" + chore.getDeadline());
-                choreList.add("Repeating?" + chore.getRepeat());
-                choreList.add("Description" + chore.getDescription());
+                choreList.add("Point Value " + chore.getPoints());
+                choreList.add("Time Required " + chore.getTime());
+                choreList.add("Due in " + chore.getDeadline());
+                choreList.add("Repeating? " + chore.getRepeat());
+                choreList.add("Description " + chore.getDescription());
+                choreList.add("Chore Completed");
 
                 expandableListDetail.put(chore.getName(), choreList);
             }
         }
-    }
-
-    public static HashMap<String, List<String>> getData2() {
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("Chores");
-
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                getUpdates(dataSnapshot);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        });
-
-        return expandableListDetail;
     }
 }

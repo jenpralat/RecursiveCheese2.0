@@ -24,7 +24,7 @@ public class ChoreDisplay extends AppCompatActivity {
         String name = intent.getStringExtra("ChoreNameDisplay");
         int point = intent.getIntExtra("ChorePointDisplay", 0);
         double time = intent.getDoubleExtra("ChoreTimeDisplay", 0);
-        String desc = intent.getStringExtra("ChoreDescribtionDisplay");
+        String desc = intent.getStringExtra("ChoreDescriptionDisplay");
         boolean repeat = intent.getBooleanExtra("ChoreRepeatDisplay",FALSE);
         double deadline = intent.getDoubleExtra("ChoreDeadlineDisplay", 0);
 

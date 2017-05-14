@@ -1,18 +1,28 @@
 package com.example.jenna.chorecloud;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -35,7 +45,7 @@ public class NameListChoreDisplay extends AppCompatActivity{
      * @param savedInstanceState Last instance that was displayed that is saved in case user wishes to return
      */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.namelist_chore_display); //View (formatting) of list
         expandableListView = (ExpandableListView) findViewById(R.id.listView); //Declares the expandableListView
@@ -70,7 +80,7 @@ public class NameListChoreDisplay extends AppCompatActivity{
 
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             /**
-             * Displays message that says "(title of group) -> (child string in group)", when the child is clicked on
+             * Deletes a chore from the database when the child "Chore Completed" is clicked
              * @param parent  ExpandableListView that is the parent
              * @param v View
              * @param groupPosition Position of title (group) within the list
@@ -79,14 +89,37 @@ public class NameListChoreDisplay extends AppCompatActivity{
              * @return False
              */
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        expandableListTitle.get(groupPosition)
-                                + " -> "
-                                + expandableListDetail.get(
-                                expandableListTitle.get(groupPosition)).get(
-                                childPosition), Toast.LENGTH_SHORT).show();
+            public boolean onChildClick(ExpandableListView parent, View v, final int groupPosition, final int childPosition, long id) {
+                if(expandableListAdapter.getChild(groupPosition, childPosition).equals("Chore Completed")){
+                    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference ref = database.getReference("Chores");
+
+                    String ChoreDelete = (String) expandableListAdapter.getChild(groupPosition,0);
+                    final String ChoreNameDelete = ChoreDelete.substring(6);
+                    ref.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                            Chore chore = dataSnapshot.getValue(Chore.class);
+                            if(chore.getName().equals(ChoreNameDelete)){
+                                dataSnapshot.getRef().removeValue();
+                            }
+                        }
+
+                        @Override
+                        public void onChildChanged(DataSnapshot dataSnapshot, String s) { }
+
+                        @Override
+                        public void onChildRemoved(DataSnapshot dataSnapshot) {
+                            SendNotificationChoreComplete(ChoreNameDelete);
+                        }
+
+                        @Override
+                        public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) { }
+                    });
+                }
                 return false;
             }
         });
@@ -100,4 +133,23 @@ public class NameListChoreDisplay extends AppCompatActivity{
         Intent i = new Intent(this, MakeChore.class);
         startActivity(i);
     }
+
+    /**
+     * Sends a notification saying what chore was just completed
+     * @param chorename The name of the chore that was just completed
+     */
+    public void SendNotificationChoreComplete(String chorename){
+        // Creates a Builder object.
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+        mBuilder.setContentTitle("ChoreCloud");
+        mBuilder.setContentText(chorename+" was just completed!");
+        mBuilder.setSmallIcon(android.R.drawable.ic_menu_report_image);
+
+        // Notifications are issued by sending them to the NotificationManager system service
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // Passes the Notification object to the NotificationManager.
+        mNotificationManager.notify(1, mBuilder.build());
+    }
 }
+

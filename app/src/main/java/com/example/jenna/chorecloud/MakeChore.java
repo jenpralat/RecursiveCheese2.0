@@ -53,9 +53,16 @@ public class MakeChore extends AppCompatActivity {
         Double timeDouble = parseDouble(timeStr);
         Double dueDouble = parseDouble(dueStr);
 
-        Chore newchore = new Chore(pointInt, nameStr, repeatB, timeDouble.doubleValue(), dueDouble.doubleValue());
+        Chore newchore = new Chore();
+        if(pointInt!=0 & !nameStr.isEmpty() & timeDouble.doubleValue()!=0 & dueDouble.doubleValue()!=0) {
+            newchore.setPoints(pointInt);
+            newchore.setName(nameStr);
+            newchore.setRepeat(repeatB);
+            newchore.setTime(timeDouble.doubleValue());
+            newchore.setDeadline(dueDouble.doubleValue());
+        }
         if(!descriptionStr.isEmpty()){
-            newchore.setDesc(descriptionStr);
+            newchore.setDescription(descriptionStr);
         }
 
         DatabaseReference newchoreRef = ref.push();
@@ -87,6 +94,10 @@ public class MakeChore extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Sends a notification saying that a chore was just created
+     * @param view View
+     */
     public void SendNotification(View view){
 
         // Creates an Intent for the Activity

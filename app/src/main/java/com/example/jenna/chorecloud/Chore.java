@@ -108,7 +108,7 @@ public class Chore {
          * Sets the description of the chore.
          * @param desc, the chore's description.
          */
-        public void setDesc(String desc)
+        public void setDescription(String desc)
         {
             this.description = desc;
         }
