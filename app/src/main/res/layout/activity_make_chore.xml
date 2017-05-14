@@ -31,13 +31,13 @@
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/enterName"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="18sp" />
@@ -50,13 +50,13 @@
         android:text="@string/string_enterPoint"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/enterPoint"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
         android:textSize="18sp" />
@@ -69,13 +69,13 @@
         android:text="@string/string_enterTime"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/enterTime"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
         android:textSize="18sp" />
@@ -88,7 +88,7 @@
         android:fontFamily="casual"
         android:text="@string/string_enterRepeat"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -99,13 +99,13 @@
         android:text="@string/string_enterDate"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/enterDate"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date"
         android:textSize="18sp" />
@@ -118,13 +118,13 @@
         android:text="@string/string_enterDescription"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/enterDescription"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:fadingEdge="vertical"
         android:inputType="textPersonName"
@@ -134,7 +134,7 @@
         android:id="@+id/done"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:cursorVisible="false"
         android:fontFamily="casual"
         android:onClick="MakeChore"

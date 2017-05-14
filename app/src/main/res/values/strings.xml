@@ -4,7 +4,7 @@
     <string name="welcome_makeChore">Create your Chore</string>
     <string name="string_name">Name of Chore:</string>
     <string name="string_enterPoint">Point Value:</string>
-    <string name="string_enterTime">Duration (min):</string>
+    <string name="string_enterTime">Duration (hrs):</string>
     <string name="string_enterRepeat">Repeat:</string>
     <string name="string_enterDate">Due Date: </string>
     <string name="string_enterDescription">Description (optional):</string>
