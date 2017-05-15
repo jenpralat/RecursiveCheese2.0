@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,8 +32,10 @@ public class NameListChoreDisplay extends AppCompatActivity {
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
-    HashMap<String, List<String>> expandableListDetail;
+    HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
     Context context;
+
+    String TAG = "TESTMYAPP";
 
     /**
      * Creates the expandable list within the information within the expandablelistview class
@@ -42,10 +46,71 @@ public class NameListChoreDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.namelist_chore_display); //View (formatting) of list
         expandableListView = (ExpandableListView) findViewById(R.id.listView); //Declares the expandableListView
-        expandableListDetail = expandablelistview.getData(); //Populates the information within the list
-        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet()); //Declare the ArrayList of titles
-        expandableListAdapter = new CustomExpandablelistview(this, expandableListTitle, expandableListDetail); //Declare instance of CustomExpandablelistview class
-        expandableListView.setAdapter(expandableListAdapter); //Sets the adapter that will make changes to the list
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("Chores");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snap) {
+                Chore chore;
+                for (DataSnapshot dsChore : snap.getChildren()) {
+                    chore = dsChore.getValue(Chore.class);
+                    if (chore != null) {
+                        List<String> choreList = new ArrayList<String>();
+                        choreList.add("Name: " + chore.getName());
+                        choreList.add("Point Value " + chore.getPoints());
+                        choreList.add("Time Required " + chore.getTime());
+                        choreList.add("Due in " + chore.getDeadline());
+                        choreList.add("Repeating? " + chore.getRepeat());
+                        choreList.add("Description " + chore.getDescription());
+                        choreList.add("Chore Completed");
+
+                        Log.i(TAG, "In onDataChange, adding chore to map " + chore.getName());
+                        expandableListDetail.put(chore.getName(), choreList);
+                    }
+                }
+
+                expandableListTitle = new ArrayList<String>(expandableListDetail.keySet()); //Declare the ArrayList of titles
+                expandableListAdapter = new CustomExpandablelistview(getBaseContext(), expandableListTitle, expandableListDetail); //Declare instance of CustomExpandablelistview class
+                expandableListView.setAdapter(expandableListAdapter); //Sets the adapter that will make changes to the list
+            }
+
+            //@Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.i(TAG, "ERROR in Database: " + databaseError.getMessage());
+                Log.i(TAG, "ERROR in Database: " + databaseError.getDetails());
+            }
+        });
+
+        ref.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Log.i(TAG, "In NameListChoreDisplay.onChildAdded()");
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Log.i(TAG, "In NameListChoreDisplay.onChildChanged()");
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Log.i(TAG, "In NameListChoreDisplay.onChildRemoved()");
+                Chore chore = dataSnapshot.getValue(Chore.class);;
+                if (chore != null) {
+                    Log.i(TAG, "Removing chore: " + chore.getName());
+                    expandableListDetail.remove(chore.getName());
+                }
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        });
+
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
             @Override
@@ -86,14 +151,21 @@ public class NameListChoreDisplay extends AppCompatActivity {
                     final FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference ref = database.getReference("Chores");
 
+                    Log.i(TAG, "In setOnChildClickListener()");
+
                     String ChoreDelete = (String) expandableListAdapter.getChild(groupPosition, 0);
                     final String ChoreNameDelete = ChoreDelete.substring(6);
+                    Log.i(TAG, ChoreNameDelete);
                     ref.addChildEventListener(new ChildEventListener() {
                         @Override
                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                            //getUpdates(dataSnapshot);
+                            Log.i(TAG, "In setOnChildClickListener().onChildAdded");
                             Chore chore = dataSnapshot.getValue(Chore.class);
+                            Log.i(TAG, chore.getName());
                             if (chore.getName().equals(ChoreNameDelete)) {
                                 dataSnapshot.getRef().removeValue();
+                                Log.i(TAG,"Chore Removed");
                             }
                         }
 
@@ -103,6 +175,7 @@ public class NameListChoreDisplay extends AppCompatActivity {
 
                         @Override
                         public void onChildRemoved(DataSnapshot dataSnapshot) {
+                            Log.i(TAG, "In NameListChoreDisplay.onChildRemoved()");
                             SendNotificationChoreComplete(ChoreNameDelete);
                         }
 
