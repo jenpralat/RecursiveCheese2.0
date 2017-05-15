@@ -31,6 +31,7 @@ public class NameListChoreDisplay extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     HashMap<String, List<String>> expandableListDetail;
+    Context context;
 
     /**
      * Creates the expandable list within the information within the expandablelistview class
@@ -93,7 +94,6 @@ public class NameListChoreDisplay extends AppCompatActivity {
                             Chore chore = dataSnapshot.getValue(Chore.class);
                             if (chore.getName().equals(ChoreNameDelete)) {
                                 dataSnapshot.getRef().removeValue();
-                                SendNotificationChoreComplete(ChoreNameDelete);
                             }
                         }
 
@@ -102,7 +102,9 @@ public class NameListChoreDisplay extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onChildRemoved(DataSnapshot dataSnapshot) { }
+                        public void onChildRemoved(DataSnapshot dataSnapshot) {
+                            SendNotificationChoreComplete(ChoreNameDelete);
+                        }
 
                         @Override
                         public void onChildMoved(DataSnapshot dataSnapshot, String s) {
