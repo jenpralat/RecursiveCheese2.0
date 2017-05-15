@@ -78,7 +78,7 @@ public class MakeChore extends AppCompatActivity {
      * @param chore The chore that will be displayed
      */
     public void newIntent(View view, Chore chore){
-        Intent intent = new Intent(this, ChoreDisplay.class);
+        Intent intent = new Intent(this, NameListChoreDisplay.class);
         String nameDisplay = chore.getName();
         int pointDisplay = chore.getPoints();
         Double timeDisplay = chore.getTime();
@@ -101,7 +101,7 @@ public class MakeChore extends AppCompatActivity {
     public void SendNotification(View view){
 
         // Creates an Intent for the Activity
-        Intent intent = new Intent(this, ChoreDisplay.class);
+        Intent intent = new Intent(this, NameListChoreDisplay.class);
 
         // Sets the Activity to start in a new, empty task
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
