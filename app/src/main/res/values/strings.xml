@@ -4,7 +4,7 @@
     <string name="welcome_makeChore">Create your Chore</string>
     <string name="string_name">Name of Chore:</string>
     <string name="string_enterPoint">Point Value:</string>
-    <string name="string_enterTime">Duration (hrs):</string>
+    <string name="string_enterTime">Duration (min):</string>
     <string name="string_enterRepeat">Repeat:</string>
     <string name="string_enterDate">Due Date: </string>
     <string name="string_enterDescription">Description (optional):</string>
@@ -13,7 +13,8 @@
     <string name="string_toHome">To Home</string>
     <string name="string_ToMakeChore">Make a New Chore</string>
     <string name="string_notnull">Not null</string>
-    <string name="string_createChore">Create</string>
+    <string name="welcome">Welcome to the ChoreCloud!</string>
+    <string name="welcome_button">Get started</string>
 
     <string name="label_google_sign_in">Firebase + Google Sign In</string>
     <string name="desc_google_sign_in">Use a Google Sign In credential to authenticate with Firebase.</string>
@@ -37,9 +38,6 @@
     <string name="loading">Loading…</string>
     <string name="custom_token">Custom Token</string>
     <string name="signed_out">Signed Out</string>
-    <string name="token_null">Token: null</string>
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
     <string name="desc_firebase_lockup">Firebase logo and name</string>
     <string name="auth_failed">Authentication failed</string>
 
@@ -49,21 +47,11 @@
     <string name="google_status_fmt">Google User: %s</string>
     <string name="google_title_text">Google Sign In</string>
 
-    <string name="facebook_status_fmt">Facebook User: %s</string>
-    <string name="facebook_title_text">Facebook Login</string>
-
-    <string name="emailpassword_status_fmt">Email User: %1$s (verified: %2$b)</string>
-    <string name="emailpassword_title_text">Email and Password</string>
-
-    <string name="twitter_status_fmt">Twitter User: %s</string>
-    <string name="twitter_title_text">Twitter Login</string>
-
     <string name="firebaseui_status_fmt">Firebase User: %s</string>
     <string name="firebaseui_title_text">FirebaseUI Auth</string>
 
     <string name="id_fmt">User ID: %s</string>
     <string name="email_fmt">Email: %s</string>
-
-    <string name = "welcome">Welcome to ChoreCloud!</string>
-    <string name = "welcome_button">Get Started</string>
-    </resources>
+    <string name="string_proceed">Proceed</string>
+    <string name="string_createChore">Make Chore</string>
+</resources>

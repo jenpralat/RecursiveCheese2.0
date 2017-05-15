@@ -9,16 +9,14 @@ import android.view.View;
  * Created by Jonathan Sigel on 5/8/2017.
  */
 
-public class Home extends AppCompatActivity{
-
+public class ProceedButton extends AppCompatActivity{
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homescreen);
+        setContentView(R.layout.activity_google);
     }
-
     public void onClick(View view){
-        Intent i = new Intent(this, GoogleSigninActivity.class);
+        Intent i = new Intent(this, Home.class);
         startActivity(i);
     }
 }

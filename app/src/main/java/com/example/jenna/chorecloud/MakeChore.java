@@ -79,18 +79,6 @@ public class MakeChore extends AppCompatActivity {
      */
     public void newIntent(View view, Chore chore){
         Intent intent = new Intent(this, NameListChoreDisplay.class);
-        String nameDisplay = chore.getName();
-        int pointDisplay = chore.getPoints();
-        Double timeDisplay = chore.getTime();
-        String descriptionDisplay = chore.getDescription();
-        Boolean repeatDisplay = chore.getRepeat();
-        Double deadlineDisplay = chore.getDeadline();
-        intent.putExtra("ChoreNameDisplay",nameDisplay);
-        intent.putExtra("ChorePointDisplay",pointDisplay);
-        intent.putExtra("ChoreTimeDisplay", timeDisplay);
-        intent.putExtra("ChoreDescriptionDisplay", descriptionDisplay);
-        intent.putExtra("ChoreRepeatDisplay", repeatDisplay);
-        intent.putExtra("ChoreDeadlineDisplay", deadlineDisplay);
         startActivity(intent);
     }
 

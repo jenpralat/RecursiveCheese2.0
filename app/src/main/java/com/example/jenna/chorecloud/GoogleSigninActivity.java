@@ -45,7 +45,6 @@ public class GoogleSigninActivity extends BaseActivity implements
     private TextView mDetailTextView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +58,7 @@ public class GoogleSigninActivity extends BaseActivity implements
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.disconnect_button).setOnClickListener(this);
+        findViewById(R.id.proceed_button).setOnClickListener(this);
 
         // [START config_signin]
         // Configure Google Sign In
@@ -182,10 +182,9 @@ public class GoogleSigninActivity extends BaseActivity implements
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-            if(mGoogleApiClient==null){
+            if (mGoogleApiClient == null) {
                 mStatusTextView.setText(null);
-            }
-            else{
+            } else {
                 mStatusTextView.setText(string_notnull);
             }
             mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
@@ -193,12 +192,15 @@ public class GoogleSigninActivity extends BaseActivity implements
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+            findViewById(R.id.proceed_button).setVisibility(View.VISIBLE);
         } else {
             mStatusTextView.setText(R.string.signed_out);
             mDetailTextView.setText(null);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+            findViewById(R.id.proceed_button).setVisibility(View.GONE);
+
         }
     }
 
@@ -217,7 +219,12 @@ public class GoogleSigninActivity extends BaseActivity implements
         } else if (i == R.id.sign_out_button) {
             signOut();
         } else if (i == R.id.disconnect_button) {
-            revokeAccess();
-         }
+         revokeAccess();
+            }
+        else if (i == R.id.proceed_button) {
+            Intent j = new Intent(this, MakeChore.class);
+            startActivity(j);
+        }
+        }
+
     }
-}

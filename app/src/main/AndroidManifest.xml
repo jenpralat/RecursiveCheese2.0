@@ -9,10 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GoogleSigninActivity">
-
-        </activity>
-
         <activity android:name=".MakeChore" />
         <activity android:name=".ChoreDisplay"
             android:parentActivityName=".MakeChore">
@@ -20,8 +16,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MakeChore" />
         </activity>
-        <activity android:name=".NameListChoreDisplay"/>
-        <activity android:name=".Home">
+        <activity android:name=".GoogleSigninActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />
