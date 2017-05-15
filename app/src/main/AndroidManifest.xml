@@ -16,7 +16,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MakeChore" />
         </activity>
-        <activity android:name=".GoogleSigninActivity">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />

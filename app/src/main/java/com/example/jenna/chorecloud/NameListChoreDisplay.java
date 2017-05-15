@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Created by Jenna on 4/6/2017.
  */
-
+//
 public class NameListChoreDisplay extends AppCompatActivity {
 
     ExpandableListView expandableListView;
