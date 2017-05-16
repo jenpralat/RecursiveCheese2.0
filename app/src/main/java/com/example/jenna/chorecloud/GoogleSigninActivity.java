@@ -222,7 +222,7 @@ public class GoogleSigninActivity extends BaseActivity implements
          revokeAccess();
             }
         else if (i == R.id.proceed_button) {
-            Intent j = new Intent(this, MakeChore.class);
+            Intent j = new Intent(this, NameListChoreDisplay.class);
             startActivity(j);
         }
         }

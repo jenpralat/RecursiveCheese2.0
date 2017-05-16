@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -30,7 +31,7 @@ public class MakeChore extends AppCompatActivity {
      * Create a chore, and save it to the database
      * @param view The xml view where the chore info is inputed
      */
-    public void MakeChore (View view){
+    public void onClickMakeChore (View view){
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Chores");
 
@@ -69,17 +70,18 @@ public class MakeChore extends AppCompatActivity {
         newchoreRef.setValue(newchore);
 
         SendNotification(view);
-        newIntent(view, newchore);
+        newIntent(view);
     }
 
     /**
      * Create a new intent where the new chore will be displayed
      * @param view The view of the parent intent
-     * @param chore The chore that will be displayed
      */
-    public void newIntent(View view, Chore chore){
-        Intent intent = new Intent(this, NameListChoreDisplay.class);
-        startActivity(intent);
+    public void newIntent(View view){
+        Log.d("Test", "Step 1");
+        Intent i = new Intent(this, NameListChoreDisplay.class);
+        Log.d("Test","Step 2");
+        startActivity(i);
     }
 
     /**

@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:cursorVisible="false"
                 android:fontFamily="casual"
-                android:onClick="MakeChore"
+                android:onClick="onClickMakeChore"
                 android:text="@string/string_createChore"
                 android:textSize="24sp"
                 android:textStyle="bold" />
