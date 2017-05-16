@@ -52,4 +52,5 @@ public class ChoreDisplay extends AppCompatActivity {
         startActivity(i);
     }
 
+
 }
