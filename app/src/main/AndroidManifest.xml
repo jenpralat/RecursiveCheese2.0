@@ -16,6 +16,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MakeChore" />
         </activity>
+
         <activity android:name=".GoogleSigninActivity">
         </activity>
         <activity android:name=".NameListChoreDisplay"/>

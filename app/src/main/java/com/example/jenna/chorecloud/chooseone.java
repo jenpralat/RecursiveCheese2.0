@@ -16,6 +16,7 @@ public class chooseone extends AppCompatActivity {
         setContentView(R.layout.choose_one);
     }
     public void onClick(View view){
+
         Intent a = new Intent(this, NameListChoreDisplay.class);
         startActivity(a);
     }
