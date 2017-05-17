@@ -5,12 +5,15 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.content.Context;
 import android.support.v4.app.NotificationCompat;
+import android.widget.Toast;
+
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 import com.firebase.client.Firebase;
@@ -45,23 +48,32 @@ public class MakeChore extends AppCompatActivity {
         Boolean repeatB = repeat.isChecked();
 
         String nameStr = name.getText().toString();
+        if(TextUtils.isEmpty(nameStr)){
+            name.setError("Invalid Chore Name");
+            return;
+        }
         String pointStr = point.getText().toString();
+        if(TextUtils.isEmpty(pointStr)){
+            point.setError("Invalid Point Value");
+            return;
+        }
         String timeStr = time.getText().toString();
+        if(TextUtils.isEmpty(timeStr)){
+            time.setError("Invalid Time Amount");
+            return;
+        }
         String dueStr = due.getText().toString();
+        if(TextUtils.isEmpty(dueStr)){
+            due.setError("Invalid Due Date");
+            return;
+        }
         String descriptionStr = description.getText().toString();
 
         int pointInt = parseInt(pointStr);
         Double timeDouble = parseDouble(timeStr);
         Double dueDouble = parseDouble(dueStr);
 
-        Chore newchore = new Chore();
-        if(pointInt!=0 & !nameStr.isEmpty() & timeDouble.doubleValue()!=0 & dueDouble.doubleValue()!=0) {
-            newchore.setPoints(pointInt);
-            newchore.setName(nameStr);
-            newchore.setRepeat(repeatB);
-            newchore.setTime(timeDouble.doubleValue());
-            newchore.setDeadline(dueDouble.doubleValue());
-        }
+        Chore newchore = new Chore(pointInt,nameStr,repeatB,timeDouble.doubleValue(),dueDouble.doubleValue());
         if(!descriptionStr.isEmpty()){
             newchore.setDescription(descriptionStr);
         }

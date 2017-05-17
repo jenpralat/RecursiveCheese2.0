@@ -10,14 +10,27 @@ import android.view.View;
  */
 public class chooseone extends AppCompatActivity {
 
-    //Display the new chore
+    //Creates the view
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_one);
     }
-    public void onClick(View view){
 
+    /**
+     * Sends the parent to the correct list view
+     * @param view View
+     */
+    public void onClickParent(View view){
         Intent a = new Intent(this, NameListChoreDisplay.class);
         startActivity(a);
+    }
+
+    /**
+     * Sends the child to the correct list view
+     * @param view View
+     */
+    public void onClickChild(View view){
+        Intent i = new Intent(this, NameListChoreDisplay_Child.class);
+        startActivity(i);
     }
 }

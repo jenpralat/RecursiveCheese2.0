@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.04"
-        android:onClick="onClick"
+        android:onClick="onClickParent"
         android:text="Parent"
         android:textSize="24sp" />
 
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.04"
-        android:onClick="onClick"
+        android:onClick="onClickChild"
         android:text="Child"
         android:textSize="24sp" />
 </LinearLayout>
