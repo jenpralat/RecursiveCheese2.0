@@ -17,8 +17,8 @@ public class Home extends AppCompatActivity{
         setContentView(R.layout.homescreen);
     }
 
-    public void onClick(View view){
-        Intent i = new Intent(this, GoogleSigninActivity.class);
+    public void onClickHome(View view){
+        Intent i = new Intent(this, ChooseChild.class);
         startActivity(i);
     }
 }

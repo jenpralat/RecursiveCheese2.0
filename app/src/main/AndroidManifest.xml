@@ -11,22 +11,22 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MakeChore" />
         <activity android:name=".ChoreDisplay"
-            android:parentActivityName=".MakeChore">
+            android:parentActivityName=".MakeChore">5
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MakeChore" />
         </activity>
 
-        <activity android:name=".GoogleSigninActivity">
-        </activity>
+        <activity android:name=".GoogleSigninActivity"/>
+        <activity android:name=".NameListChoreDisplay_Child"/>
         <activity android:name=".NameListChoreDisplay"/>
-        <activity android:name=".chooseone">
+        <activity android:name=".ChooseChild"/>
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NameListChoreDisplay_Child"/>
 
     </application>
 

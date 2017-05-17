@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.10"
         android:fontFamily="casual"
-        android:onClick="onClick"
+        android:onClick="onClickHome"
         android:text="@string/welcome_button"
         android:textSize="24sp"
         android:textStyle="bold" />
