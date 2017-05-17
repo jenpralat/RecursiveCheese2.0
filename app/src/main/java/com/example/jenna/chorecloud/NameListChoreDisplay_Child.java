@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -25,10 +26,10 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by Jenna on 4/6/2017.
+ * Created by Jenna on 5/17/2017.
  */
-//
-public class NameListChoreDisplay extends AppCompatActivity {
+
+public class NameListChoreDisplay_Child extends AppCompatActivity {
 
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
@@ -45,7 +46,7 @@ public class NameListChoreDisplay extends AppCompatActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.namelist_chore_display); //View (formatting) of list
+        setContentView(R.layout.namelist_chore_display_child); //View (formatting) of list
         expandableListView = (ExpandableListView) findViewById(R.id.listView); //Declares the expandableListView
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -166,6 +167,7 @@ public class NameListChoreDisplay extends AppCompatActivity {
                             Log.i(TAG, chore.getName());
                             if (chore.getName().equals(ChoreNameDelete)) {
                                 dataSnapshot.getRef().removeValue();
+                                updatePoints(chore);
                                 Log.i(TAG,"Chore Removed");
                             }
                         }
@@ -192,15 +194,6 @@ public class NameListChoreDisplay extends AppCompatActivity {
                 return false;
             }
         });
-    }
-
-    /**
-     * Go to the Make Chore intent
-     * @param view View of the new intent
-     */
-    public void onClickMakeChore(View view){
-        Intent i = new Intent(this, MakeChore.class);
-        startActivity(i);
     }
 
     /**
@@ -232,5 +225,16 @@ public class NameListChoreDisplay extends AppCompatActivity {
         // Passes the Notification object to the NotificationManager.
         mNotificationManager.notify(1, mBuilder.build());
     }
-}
 
+    /**
+     * Updates the number of points the child has based off of the chore that was just deleted
+     * @param c Chore that was just deleted
+     */
+    public void updatePoints(Chore c){
+        int points = c.getPoints();
+        String pointsStr = String.valueOf(points);
+        String print = "Number of Points: "+pointsStr;
+        TextView pointview = (TextView) findViewById(R.id.pointview);
+        pointview.setText(print);
+    }
+}
