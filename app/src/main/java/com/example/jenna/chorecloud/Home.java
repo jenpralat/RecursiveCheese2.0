@@ -17,8 +17,8 @@ public class Home extends AppCompatActivity{
         setContentView(R.layout.homescreen);
     }
 
-    public void onClickHome(View view){
-        Intent i = new Intent(this, ChooseChild.class);
+    public void onClick(View view){
+        Intent i = new Intent(this, chooseone.class);
         startActivity(i);
     }
 }

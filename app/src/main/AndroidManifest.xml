@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MakeChore" />
         <activity android:name=".ChoreDisplay"
-            android:parentActivityName=".MakeChore">5
+            android:parentActivityName=".MakeChore">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MakeChore" />
@@ -20,7 +20,7 @@
         <activity android:name=".GoogleSigninActivity"/>
         <activity android:name=".NameListChoreDisplay_Child"/>
         <activity android:name=".NameListChoreDisplay"/>
-        <activity android:name=".ChooseChild"/>
+        <activity android:name=".chooseone"/>
         <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -19,6 +19,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -40,7 +42,7 @@ public class NameListChoreDisplay_Child extends AppCompatActivity {
     String TAG = "TESTMYAPP";
 
     /**
-     * Creates the expandable list within the information within the expandablelistview class
+     * Creates the child's view of the Chore List. Populates the expandable list based off of firebase, and tracks the number of points
      * @param savedInstanceState Last instance that was displayed that is saved in case user wishes to return
      */
     @Override
@@ -51,6 +53,21 @@ public class NameListChoreDisplay_Child extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Chores");
+
+        DatabaseReference refPoint = database.getReference("Points");
+        refPoint.addValueEventListener(new ValueEventListener() { //Add Listener for the points
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) { //Update the point value displayed based off of Firebase
+                int point = dataSnapshot.getValue(int.class);
+                String pointsStr = Integer.toString(point);
+                String print = "Points: " + pointsStr;
+                TextView pointview = (TextView) findViewById(R.id.pointview);
+                pointview.setText(print);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) { }
+        });
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -99,7 +116,8 @@ public class NameListChoreDisplay_Child extends AppCompatActivity {
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 Log.i(TAG, "In NameListChoreDisplay.onChildRemoved()");
-                Chore chore = dataSnapshot.getValue(Chore.class);;
+                Chore chore = dataSnapshot.getValue(Chore.class);
+                ;
                 if (chore != null) {
                     Log.i(TAG, "Removing chore: " + chore.getName());
                     expandableListDetail.remove(chore.getName());
@@ -107,10 +125,12 @@ public class NameListChoreDisplay_Child extends AppCompatActivity {
             }
 
             @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) { }
+            public void onCancelled(DatabaseError databaseError) {
+            }
         });
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -167,8 +187,8 @@ public class NameListChoreDisplay_Child extends AppCompatActivity {
                             Log.i(TAG, chore.getName());
                             if (chore.getName().equals(ChoreNameDelete)) {
                                 dataSnapshot.getRef().removeValue();
-                                updatePoints(chore);
-                                Log.i(TAG,"Chore Removed");
+                                updatePointsFirebase(chore);
+                                Log.i(TAG, "Chore Removed");
                             }
                         }
 
@@ -200,7 +220,7 @@ public class NameListChoreDisplay_Child extends AppCompatActivity {
      * Sends a notification saying what chore was just completed
      * @param chorename The name of the chore that was just completed
      */
-    public void SendNotificationChoreComplete(String chorename){
+    public void SendNotificationChoreComplete(String chorename) {
         // Creates an Intent for the Activity
         Intent intent = new Intent(this, NameListChoreDisplay.class);
 
@@ -213,7 +233,7 @@ public class NameListChoreDisplay_Child extends AppCompatActivity {
         // Creates a Builder object.
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         mBuilder.setContentTitle("ChoreCloud");
-        mBuilder.setContentText(chorename+" was just completed!");
+        mBuilder.setContentText(chorename + " was just completed!");
         mBuilder.setSmallIcon(android.R.drawable.ic_menu_report_image);
 
         // Puts the PendingIntent into the notification builder
@@ -227,14 +247,32 @@ public class NameListChoreDisplay_Child extends AppCompatActivity {
     }
 
     /**
-     * Updates the number of points the child has based off of the chore that was just deleted
+     * Updates the number of points the child has based off of the chore that was just deleted (in Firebase)
      * @param c Chore that was just deleted
      */
-    public void updatePoints(Chore c){
-        int points = c.getPoints();
-        String pointsStr = String.valueOf(points);
-        String print = "Number of Points: "+pointsStr;
-        TextView pointview = (TextView) findViewById(R.id.pointview);
-        pointview.setText(print);
+    public void updatePointsFirebase(final Chore c) {
+        Log.d("test","Step1");
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference refPoint = database.getReference("Points");
+        refPoint.runTransaction(new Transaction.Handler() {
+            @Override
+            public Transaction.Result doTransaction(MutableData mutableData) {
+                Long value = mutableData.getValue(Long.class);
+                if (value == null) {
+                    mutableData.setValue(0);
+                }
+                else {
+                    mutableData.setValue(value + c.getPoints());
+                }
+
+                return Transaction.success(mutableData);
+            }
+
+            @Override
+            public void onComplete(DatabaseError databaseError, boolean b,
+                                   DataSnapshot dataSnapshot) {
+                Log.d(TAG, "transaction:onComplete:" + databaseError);
+            }
+        });
     }
 }
